@@ -1,0 +1,157 @@
+[
+  {
+    "question": "Je v Unhošti kompostárna?",
+    "answer": "Ano. Kompostárna ECOWOOD se nachází na okraji Unhoště směrem na Pavlov, u silnice č. III/0067 mezi Unhoští a Pavlovem, okres Kladno.",
+    "tags": ["geo", "kontakt", "faq"]
+  },
+  {
+    "question": "Kam mohu odevzdat bioodpad v Unhošti?",
+    "answer": "Trávu, listí, větve a další vhodný rostlinný materiál odevzdáte v kompostárně ECOWOOD mezi Unhoští a Pavlovem. Příjem probíhá v otevírací době; u větších množství nebo neobvyklých druhů odpadu doporučujeme podmínky předem ověřit telefonicky.",
+    "tags": ["geo", "sluzby", "faq"]
+  },
+  {
+    "question": "Je kompostárna blízko Pavlova?",
+    "answer": "Ano. Areál ECOWOOD leží přímo mezi Unhoští a Pavlovem u silnice III/0067, takže je z Pavlova snadno dostupný.",
+    "tags": ["geo", "faq"]
+  },
+  {
+    "question": "Mohu si v kompostárně koupit kompost?",
+    "answer": "Ano. Přímo v areálu prodáváme kompost EW, zahradnický i trávníkový substrát, mulčovací kůru, rašelinu a další materiály pro zahradu. Ceny najdete v ceníku na webu. Platba v areálu je možná pouze v hotovosti.",
+    "tags": ["kompost", "substraty", "faq"]
+  },
+  {
+    "question": "Kde koupit kompost v Hostivici?",
+    "answer": "Nejbližší kompostárna, kde kompost přímo koupíte, je ECOWOOD u Unhoště — z Hostivice pár minut po silnici 201. Kromě kompostu vedeme zahradnické a trávníkové substráty, zeminy, mulčovací kůru i rašelinu. Materiál si můžete odebrat osobně nebo vám ho přivezeme až na místo. Sběrný dvůr v Hostivici bioodpad pouze přijímá, neprodává.",
+    "tags": ["kompost", "substraty", "geo", "faq"]
+  },
+  {
+    "question": "Jezdíte do Hostivice, Chýně a Jenče?",
+    "answer": "Ano. Tyto obce leží u silnice 201, po které vede příjezd ke kompostárně, takže jsme od nich jen pár minut. Přistavíme kontejner na bioodpad, odvezeme ho a dovezeme kompost, substrát nebo zeminu až na místo. Menší množství si můžete odebrat i osobně v areálu.",
+    "tags": ["geo", "sluzby", "faq"]
+  },
+  {
+    "question": "Kam odvézt větve a trávu na Kladensku?",
+    "answer": "Bioodpad ze zahrad — trávu, listí, větve i dřevo — přijímáme v kompostárně ECOWOOD u Unhoště. Z Kladna se k nám dostanete po silnici 61 směr Unhošť a dále po silnici 201 směr Jeneč a Pavlov.",
+    "tags": ["geo", "sluzby", "faq"]
+  },
+  {
+    "question": "Kde se nachází kompostárna ECOWOOD?",
+    "answer": "Kompostárna ECOWOOD leží v Unhošti u silnice č. III/0067 mezi Unhoští a Pavlovem, okres Kladno. GPS souřadnice: 50.0896°N, 14.1562°E. Snadný příjezd z Prahy (R6, exit Unhošť) i z Kladna.",
+    "tags": ["geo", "kontakt", "faq"]
+  },
+  {
+    "question": "Dodáváte kompost do Kladna a Prahy?",
+    "answer": "Ano. Naší přirozenou spádovou oblastí je Unhošť, Kladno a okolní obce ve Středočeském kraji. Kompost pravidelně vozíme i do Prahy a vzdálenějších lokalit — rozvoz domluvíme telefonicky nebo přes kontaktní formulář.",
+    "tags": ["kompost", "geo", "faq"]
+  },
+  {
+    "question": "Jaký kompost vyrábíte?",
+    "answer": "Vyrábíme kvalitní humus z biologicky rozložitelného odpadu za kontrolovaných podmínek. Kompost je vhodný pro zahrady, parky, zemědělství i jako základ pro naše zahradnické a trávníkové substráty.",
+    "tags": ["kompost", "faq"]
+  },
+  {
+    "question": "Jaké substráty nabízíte?",
+    "answer": "Vyrábíme zahradnický substrát, trávníkový substrát, střešní substrát extenzivní a střešní substrát intenzivní. Substráty rozvážíme vlastními kontejnery o objemu 7 cbm.",
+    "tags": ["substraty", "faq"]
+  },
+  {
+    "question": "Z čeho se vaše substráty vyrábějí?",
+    "answer": "Základem každého našeho substrátu je vlastní kompost vyrobený z biologicky rozložitelného odpadu. Ten dále mísíme s dalšími organickými a minerálními složkami podle technologických postupů ověřených v praxi.",
+    "tags": ["substraty", "faq"]
+  },
+  {
+    "question": "Jaký je rozdíl mezi kompostem a substrátem?",
+    "answer": "Kompost je organické hnojivo a zdroj humusu, kterým se půda vylepšuje. Substrát je hotová směs připravená k přímému použití — kromě kompostu obsahuje další složky namíchané pro konkrétní účel, například zakládání trávníku nebo zelené střechy.",
+    "tags": ["substraty", "kompost", "faq"]
+  },
+  {
+    "question": "Jaký substrát zvolit na zakládání trávníku?",
+    "answer": "Pro zakládání i renovaci trávníku doporučujeme trávníkový substrát. Je připravený tak, aby dobře propouštěl vodu a zároveň držel živiny v kořenové zóně. Rádi vám poradíme s množstvím podle plochy pozemku.",
+    "tags": ["substraty", "faq"]
+  },
+  {
+    "question": "Jaký je rozdíl mezi extenzivním a intenzivním střešním substrátem?",
+    "answer": "Extenzivní střešní substrát je lehčí a určený pro nenáročnou zeleň s minimální údržbou, například rozchodníky. Intenzivní substrát má vyšší mocnost a umožňuje vysadit i trvalky, keře a náročnější zeleň na střechách s pochozí úpravou.",
+    "tags": ["substraty", "faq"]
+  },
+  {
+    "question": "Jaké množství substrátu si mohu objednat?",
+    "answer": "Kapacita kompostárny umožňuje realizovat projekty všech velikostí — od menší zahrady po rozsáhlé parkové plochy. Standardně rozvážíme kontejnerem 7 cbm, po domluvě zajistíme i větší objemy.",
+    "tags": ["substraty", "sluzby", "faq"]
+  },
+  {
+    "question": "Zajišťujete dopravu substrátu na místo?",
+    "answer": "Ano. Rozvoz zajišťujeme vlastními kontejnery o objemu 7 cbm do Unhoště, Kladna, Prahy a okolí. Substrát si můžete odebrat i osobně přímo v kompostárně u silnice III/0067 mezi Unhoští a Pavlovem.",
+    "tags": ["substraty", "geo", "faq"]
+  },
+  {
+    "question": "Provádíte svoz biologicky rozložitelného odpadu?",
+    "answer": "Ano. K zákazníkům dovezeme velkoobjemový 14 cbm kontejner na sběr bioodpadu, po naplnění kontejner odvezeme a odpad ekologicky zpracujeme v naší kompostárně.",
+    "tags": ["sluzby", "faq"]
+  },
+  {
+    "question": "Jaké kontejnery si u vás mohu pronajmout?",
+    "answer": "Nabízíme kontejner 7 cbm, určený zejména pro rozvoz substrátů, a velkoobjemový kontejner 14 cbm na sběr biologicky rozložitelného odpadu. Kontejner po domluvě přivezeme i odvezeme.",
+    "tags": ["sluzby", "faq"]
+  },
+  {
+    "question": "Můžu do kontejneru dát i suť nebo zeminu?",
+    "answer": "Ano. Kontejnery vyvážíme i se sutí a zeminou ze zemních prací. Slouží také k návozu sypkých stavebních hmot, jako je písek nebo štěrk.",
+    "tags": ["sluzby", "faq"]
+  },
+  {
+    "question": "Jaké odpady do kompostárny přijímáte?",
+    "answer": "Přijímáme odpad rostlinných pletiv, odpady z lesnictví, dřevo, biologicky rozložitelný odpad ze zahrad a parků včetně hřbitovního odpadu a odpad z tržišť. Kompletní seznam katalogových čísel najdete na stránce Kompost.",
+    "tags": ["sluzby", "kompost", "faq"]
+  },
+  {
+    "question": "Jaké služby údržby zeleně nabízíte?",
+    "answer": "Nabídka je komplexní — od sekání trávy přes prořezy a tvarování stromů a keřů až po vertikutaci trávníků. Máme dostatek vlastní techniky pro malé zahrady i rozsáhlé areály.",
+    "tags": ["sluzby", "faq"]
+  },
+  {
+    "question": "Co je vertikutace a kdy se dělá?",
+    "answer": "Vertikutace je provzdušnění trávníku, které umožní lepší přístup vzduchu, vláhy a živin ke kořenům trávy. Doporučuje se aplikovat zejména na jaře před přihnojováním trávníku.",
+    "tags": ["sluzby", "faq"]
+  },
+  {
+    "question": "Zajišťujete i zimní údržbu?",
+    "answer": "Ano. V zimě používáme naši mechanizaci k údržbě areálů a komunikací posypem. Při větším množství sněhu je možné zajistit i jeho odvoz.",
+    "tags": ["sluzby", "faq"]
+  },
+  {
+    "question": "Kolik stojí kompost a substráty?",
+    "answer": "Aktuální ceny kompostu, substrátů i dopravy najdete v ceníku ke stažení v sekci Stahování. Cena se odvíjí od odebraného množství a vzdálenosti rozvozu — pro konkrétní nabídku nám napište nebo zavolejte na +420 602 525 903.",
+    "tags": ["kompost", "substraty", "kontakt", "faq"]
+  },
+  {
+    "question": "Můžu k vám přivézt bioodpad k uložení?",
+    "answer": "Ano, přijímáme biologicky rozložitelný odpad od obcí, zahradnických i stavebních firem a od soukromých osob. Přijímáme mimo jiné odpad katalogového čísla 20 02 01 ze zahrad a parků, odpad rostlinných pletiv a odpady z lesnictví. Příjem probíhá v otevírací době přímo v kompostárně.",
+    "tags": ["sluzby", "kompost", "faq"]
+  },
+  {
+    "question": "Prodáváte i zahradní zeminu?",
+    "answer": "Z našeho kompostu vyrábíme nejrůznější zahradní substráty a zeminy. Podle účelu vám doporučíme vhodnou směs — na zakládání trávníku, výsadbu, dorovnání terénu nebo zelenou střechu.",
+    "tags": ["substraty", "kompost", "faq"]
+  },
+  {
+    "question": "Můžu si materiál odebrat osobně?",
+    "answer": "Ano. Kompostárna leží u silnice III/0067 mezi Unhoští a Pavlovem, okres Kladno. Osobní odběr i příjem odpadu probíhá v otevírací době. Pokud potřebujete větší množství, ozvěte se předem, ať vám materiál připravíme.",
+    "tags": ["kompost", "substraty", "geo", "kontakt", "faq"]
+  },
+  {
+    "question": "Jak objednat kompost nebo služby?",
+    "answer": "Nejjednodušeji přes kontaktní formulář na webu, e-mailem na ecowood@ecowood.cz nebo telefonicky na +420 602 525 903 / +420 777 737 756. Ceník ke stažení najdete v sekci Stahování.",
+    "tags": ["kontakt", "faq"]
+  },
+  {
+    "question": "Jak se k vám dostanu z Prahy?",
+    "answer": "Z Prahy po dálnici R6 směr Karlovy Vary, exit 12 směr Unhošť, dále silnice 201 směr Jeneč a směr Pavlov. Kompostárna je viditelná u silnice III/0067.",
+    "tags": ["geo", "kontakt", "faq"]
+  },
+  {
+    "question": "Jak se k vám dostanu z Kladna?",
+    "answer": "Z Kladna po silnici 61 směr Unhošť, poté silnice 201 směr Jeneč a směr Pavlov. Kompostárna ECOWOOD je u silnice mezi Unhoští a Pavlovem.",
+    "tags": ["geo", "kontakt", "faq"]
+  }
+]

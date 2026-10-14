@@ -1,0 +1,1748 @@
+:root {
+	--ew-green: #01be4a;
+	--ew-green-dark: #01be4a;
+	--ew-green-light: #e8f7ee;
+	--ew-earth: #b85c2a;
+	--ew-earth-dark: #8f4520;
+	--ew-text: #2a3330;
+	--ew-text-muted: #5c6b65;
+	--ew-bg: #f6f9f6;
+	--ew-white: #ffffff;
+	--ew-radius: 14px;
+	--ew-radius-lg: 20px;
+	--ew-shadow: 0 8px 30px rgba(1, 190, 74, 0.08);
+	--ew-shadow-hover: 0 16px 40px rgba(1, 190, 74, 0.14);
+	--ew-font: "basic-sans", system-ui, -apple-system, sans-serif;
+}
+
+body {
+	background: var(--ew-bg);
+	color: var(--ew-text);
+	font-family: var(--ew-font);
+	/* Původní CSS má line-height napevno na 24 px, takže se řádky drží
+	   u sebe bez ohledu na velikost písma. Poměrová hodnota se přizpůsobí. */
+	line-height: 1.7;
+}
+
+p, li, td, dd, address {
+	line-height: 1.7;
+}
+
+/* ---------------------------------------------------------------
+   Jednotná velikost písma
+   Původní CSS mění velikosti po jednotlivých místech, takže stejně
+   důležité texty vycházely různě velké. Tady je jedna škála pro celý web.
+   --------------------------------------------------------------- */
+p, li, td, dd, address, .stroj-params li, .offer-list li,
+.geo-area-card p, .related-page-card span, .cenik-note, .cenik-warning,
+.tabule-block p, .bottom-menu-col li, .faq-answer {
+	font-size: 18px;
+}
+
+.lead {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.7;
+}
+
+h2,
+.main-content h2 {
+	font-size: 30px;
+}
+
+h3,
+.main-content h3,
+.offer-card h3,
+.geo-area-card h3,
+.bottom-menu h3,
+.stroj h3,
+.tabule-block h2,
+.related-page-card strong,
+.faq-item summary {
+	font-size: 22px;
+}
+
+@media (min-width: 768px) {
+	p, li, td, dd, address, .stroj-params li, .offer-list li,
+	.geo-area-card p, .related-page-card span, .cenik-note, .cenik-warning,
+	.tabule-block p, .bottom-menu-col li, .faq-answer {
+		font-size: 17px;
+	}
+
+	.lead {
+		font-size: 21px;
+	}
+
+	h2,
+	.main-content h2 {
+		font-size: 36px;
+	}
+
+	h3,
+	.main-content h3,
+	.offer-card h3,
+	.geo-area-card h3,
+	.bottom-menu h3,
+	.stroj h3,
+	.tabule-block h2,
+	.related-page-card strong,
+	.faq-item summary {
+		font-size: 21px;
+	}
+}
+
+/* Původní CSS nuluje přes `* { margin: 0 }` okraje všem prvkům, takže
+   odstavce po celém webu navazují bez mezery. */
+p {
+	margin-bottom: 22px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+.main-content ul,
+.main-content ol {
+	margin-bottom: 22px;
+}
+
+a:hover {
+	color: var(--ew-earth);
+}
+
+.green {
+	color: var(--ew-green);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: var(--ew-earth);
+}
+
+/* Pruh s otevírací dobou */
+.hours-bar {
+	background: var(--ew-earth);
+	color: #fff;
+}
+
+.hours-bar-in {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding-top: 17px;
+	padding-bottom: 17px;
+}
+
+.hours-bar-text {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #fff;
+	/* Věty plynou za sebou a zalomí se až podle šířky okna */
+	display: block;
+}
+
+.hours-bar-note {
+	font-size: 13px;
+	opacity: 0.85;
+	white-space: nowrap;
+}
+
+/* Upozornění na svátek — na mobilu na vlastní řádek, ať je vidět */
+.hours-bar-holiday {
+	font-weight: 700;
+	margin-left: 14px;
+}
+
+@media (max-width: 767px) {
+	.hours-bar-holiday {
+		display: block;
+		margin-top: 4px;
+		margin-left: 0;
+	}
+}
+
+/* Na počítači rozvrh a stručný stav, na mobilu jen stav i s názvem firmy */
+.hours-bar-brand {
+	display: none;
+}
+
+@media (max-width: 767px) {
+	.hours-bar-schedule {
+		display: none;
+	}
+
+	.hours-bar-brand {
+		display: inline;
+	}
+}
+
+
+.hours-bar-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: 0.02em;
+	color: #fff;
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	padding: 1px 9px;
+	border-radius: 999px;
+	white-space: nowrap;
+	vertical-align: baseline;
+}
+
+/* Tečka před stavem — zelená když otevřeno, červená když zavřeno.
+   Světlý prstenec ji oddělí od hnědého pozadí lišty. */
+.hours-bar-status::before {
+	content: '';
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: #ff5f56;
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.hours-bar-status.is-open::before {
+	background: #2fd06b;
+}
+
+
+.hours-bar-close {
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	position: relative;
+	line-height: 0;
+}
+
+.hours-bar-close span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.hours-bar-close span::before,
+.hours-bar-close span::after {
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 8px;
+	width: 14px;
+	height: 2px;
+	background: #fff;
+	border-radius: 2px;
+}
+
+.hours-bar-close span::before {
+	transform: rotate(45deg);
+}
+
+.hours-bar-close span::after {
+	transform: rotate(-45deg);
+}
+
+.hours-bar-close:hover span::before,
+.hours-bar-close:hover span::after {
+	background: rgba(255, 255, 255, 0.75);
+}
+
+
+/* Hamburger — původní CSS ho má zelený, na bílé hlavičce je černý čitelnější */
+.hamburger__bar,
+.hamburger__bar::after,
+.hamburger__bar::before {
+	background: #000;
+}
+
+/* Původní CSS posouvá ikonu o 15 px nad vlastní tlačítko a to kotví
+   napevno 20 px od horní hrany, takže proti logu sedí výš.
+   
+   Samotné zrušení posunu nestačí: všechny tři čáry jsou absolutně
+   umístěné, takže .hamburger má nulovou výšku a prohlížeč ho jako
+   prázdný obsah tlačítka vycentruje — ikona pak spadne o polovinu
+   výšky níž. Výška 100 % tomu zabrání. */
+.hamburger {
+	top: 0;
+	height: 100%;
+}
+
+.menu-link {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* Header */
+.header {
+	background: var(--ew-white);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	border-bottom: none;
+}
+
+@media (min-width: 768px) {
+	.header {
+		border-bottom: 17px solid var(--ew-green);
+	}
+}
+
+.header .container-fluid {
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+/* Logo se při najetí překlopí kolem svislé osy */
+.logo {
+	perspective: 600px;
+}
+
+.logo img {
+	transition: transform 0.8s ease;
+	transform-style: preserve-3d;
+}
+
+.logo:hover img {
+	transform: rotateY(360deg);
+}
+
+.menu a {
+	font-size: 17px;
+	letter-spacing: 0.01em;
+	transition: color 0.2s ease;
+	position: relative;
+}
+
+.menu a.active {
+	color: var(--ew-green);
+}
+
+/* Podtržení vyjíždí od středu při najetí myší */
+.menu a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -6px;
+	height: 3px;
+	background: var(--ew-green);
+	border-radius: 2px;
+	transform: scaleX(0);
+	transition: transform 0.25s ease;
+}
+
+.menu a.active::after,
+.menu a:hover::after {
+	transform: scaleX(1);
+}
+
+@media (max-width: 767px) {
+	.menu a::after {
+		display: none;
+	}
+}
+
+.btn,
+a.btn,
+button.btn,
+input.btn {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none !important;
+	cursor: pointer;
+	border: none;
+	box-shadow: none !important;
+	-webkit-appearance: none !important;
+	line-height: 1.2;
+	height: 50px;
+	width: auto;
+	min-width: 170px;
+	padding: 0 28px;
+	border-radius: 25px;
+	font-size: 18px;
+	transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+a.btn:hover,
+button.btn:hover {
+	text-decoration: none !important;
+}
+
+a.btn-primary,
+button.btn-primary,
+input.btn-primary {
+	color: #fff !important;
+	background: var(--ew-green) !important;
+}
+
+a.btn-primary:hover,
+button.btn-primary:hover,
+input.btn-primary:hover {
+	background: var(--ew-earth) !important;
+	color: #fff !important;
+}
+
+a.btn-secondary,
+button.btn-secondary {
+	color: var(--ew-green) !important;
+	background: #fff !important;
+	border: 2px solid var(--ew-green) !important;
+	box-shadow: none !important;
+}
+
+a.btn-secondary:hover,
+button.btn-secondary:hover {
+	background: var(--ew-green-light) !important;
+	color: var(--ew-green) !important;
+}
+
+/* Hero homepage */
+.hero {
+	overflow: hidden;
+}
+
+/* Na mobilu vyplní hero zbytek obrazovky pod lištou a hlavičkou.
+   --ew-top-offset dopočítá skript v custom.js. */
+@media (max-width: 767px) {
+	/* Hero je sloupcový flex, aby se vnitřní vrstvy roztáhly na jeho výšku.
+	   Bez toho by byly vysoké jen podle textu a zarovnání dolů by nemělo
+	   co posunout. */
+	.hero {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+		padding-bottom: 0;
+		min-height: calc(100svh - var(--ew-top-offset, 140px));
+	}
+
+	.hero img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero .hero-in {
+		position: relative;
+		height: auto;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.hero .container-fluid {
+		flex: 1;
+	}
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		115deg,
+		rgba(0, 0, 0, 0.55) 0%,
+		rgba(1, 190, 74, 0.25) 55%,
+		rgba(0, 0, 0, 0.15) 100%
+	);
+	z-index: 1;
+	pointer-events: none;
+}
+
+.hero .hero-in {
+	z-index: 2;
+}
+
+.hero .container-fluid {
+	display: flex;
+	flex-direction: column;
+	/* Na mobilu nadpis nahoře, tlačítka dole a fotka mezi nimi. */
+	justify-content: space-between;
+	height: 100%;
+	min-height: 78vw;
+	padding-top: 40px;
+	padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+	.hero .container-fluid {
+		justify-content: center;
+		min-height: 0;
+		padding-top: 80px;
+		padding-bottom: 40px;
+	}
+}
+
+.hero h1 {
+	position: static;
+	transform: none;
+	font-size: clamp(2rem, 5vw, 3.4rem);
+	line-height: 1.15;
+	text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+	max-width: 680px;
+	margin: 0;
+	color: #fff;
+}
+
+.hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 24px;
+}
+
+.hero-actions .btn {
+	width: auto;
+	min-width: 170px;
+}
+
+@media (max-width: 400px) {
+	.hero-actions {
+		gap: 10px;
+	}
+
+	.hero-actions .btn {
+		flex: 1 1 100%;
+		min-width: 0;
+	}
+}
+
+/* Hero items — původní pruh ze style.min.css */
+.hero-items a.hero-item {
+	text-decoration: none;
+	color: var(--ew-green);
+	transition: color 0.25s ease;
+}
+
+.hero-items a.hero-item::before {
+	transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-items a.hero-item:hover {
+	color: var(--ew-earth);
+}
+
+.hero-items a.hero-item:hover::before {
+	border-color: var(--ew-earth);
+	transform: scale(1.05);
+}
+
+/* News — původní zelená #01be4a ze style.min.css */
+.news {
+	background: var(--ew-green);
+	text-align: left;
+}
+
+.news::before {
+	display: none;
+}
+
+.news-items {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: none;
+}
+
+.news-next {
+	text-align: left;
+}
+
+.news-item {
+	border-radius: var(--ew-radius);
+	border: 1px solid rgba(1, 190, 74, 0.15);
+}
+
+/* Sections */
+.section-label {
+	display: block;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--ew-green);
+	margin-bottom: 6px;
+}
+
+/* Původní CSS odsazuje každý nadpis za sourozencem o 68 px, což trhá
+   dvojici popisek + nadpis od sebe. */
+.main-content .section-label + h2,
+.main-content .section-label + h3,
+.section-label + h2,
+.section-label + h3 {
+	margin-top: 0 !important;
+}
+
+.intro-teaser {
+	background: var(--ew-white);
+}
+
+
+.intro-teaser h2 {
+	margin-bottom: 20px;
+}
+
+/* Nabídka na úvodní stránce */
+.offer {
+	background: var(--ew-white);
+	padding: 50px 0;
+}
+
+@media (min-width: 992px) {
+	.offer {
+		padding: 80px 0;
+	}
+}
+
+.offer .lead {
+	max-width: 820px;
+	margin: 0 0 10px;
+}
+
+.offer-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 40px;
+	margin-top: 36px;
+}
+
+@media (min-width: 768px) {
+	.offer-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 36px;
+	}
+}
+
+.offer-card {
+	display: flex;
+	flex-direction: column;
+}
+
+.offer-card-media {
+	display: block;
+	line-height: 0;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.offer-card-media img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.5s ease;
+}
+
+.offer-card:hover .offer-card-media img {
+	transform: scale(1.05);
+}
+
+.offer-card-body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.offer-card h3 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.offer-card h3 a {
+	color: var(--ew-earth);
+	transition: color 0.25s ease;
+}
+
+.offer-card h3 a:hover,
+.offer-card:hover h3 a {
+	color: var(--ew-green);
+}
+
+.offer-card > .offer-card-body > p {
+	margin-bottom: 16px;
+	line-height: 1.6;
+}
+
+.offer-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 24px;
+}
+
+.offer-list li {
+	position: relative;
+	padding-left: 26px;
+	margin-bottom: 8px;
+	line-height: 1.5;
+	color: var(--ew-text-muted);
+}
+
+.offer-list li::before {
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 9px;
+	width: 10px;
+	height: 6px;
+	border-left: 2px solid var(--ew-green);
+	border-bottom: 2px solid var(--ew-green);
+	transform: rotate(-45deg);
+}
+
+/* Tlačítko drží stejnou šířku jako jinde na webu; bez align-self by ho
+   sloupcový flex roztáhl přes celou kartu. */
+.offer-card .btn {
+	margin-top: auto;
+	align-self: flex-start;
+	width: auto;
+	min-width: 170px;
+}
+
+/* CTA band */
+.cta-band {
+	background: var(--ew-green);
+}
+
+.cta-band h2,
+.cta-band p {
+	color: #fff;
+}
+
+.cta-band .btn-secondary {
+	background: rgba(255, 255, 255, 0.15) !important;
+	border: 2px solid rgba(255, 255, 255, 0.85) !important;
+	color: #fff !important;
+	box-shadow: none !important;
+}
+
+.cta-band .btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.28) !important;
+	color: #fff !important;
+}
+
+.cta-band .hero-actions {
+	justify-content: center;
+}
+
+.cta-band .hero-actions .btn-primary {
+	background: #fff !important;
+	color: var(--ew-green) !important;
+	box-shadow: none !important;
+}
+
+.cta-band .hero-actions .btn-primary:hover {
+	background: var(--ew-green-light) !important;
+	color: var(--ew-green) !important;
+}
+
+/* Subpage hero */
+.page-hero {
+	background: var(--ew-green);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+	background: var(--ew-white);
+	border-bottom-color: rgba(1, 190, 74, 0.12);
+}
+
+/* Main content */
+.main-content--subpage {
+	background: var(--ew-white);
+}
+
+.main-content--subpage .container-fluid {
+	padding-top: 40px;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	margin-top: 28px;
+}
+
+td {
+	border-bottom-color: var(--ew-green-light) !important;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	padding: 18px 24px 18px 0 !important;
+	line-height: 1.7;
+	vertical-align: top;
+}
+
+td:first-child {
+	width: 26%;
+}
+
+td + td {
+	border-left: 0 !important;
+	padding-left: 24px !important;
+	width: auto;
+}
+
+@media (max-width: 767px) {
+	td {
+		padding-right: 12px !important;
+		font-size: 16px;
+	}
+
+	td + td {
+		padding-left: 12px !important;
+	}
+}
+
+/* Informační tabule */
+.tabule-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 64px;
+	margin-top: 44px;
+}
+
+@media (min-width: 768px) {
+	.tabule-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 72px 56px;
+	}
+}
+
+@media (min-width: 1100px) {
+	.tabule-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 72px 64px;
+	}
+}
+
+.tabule-block {
+	border-top: 2px solid var(--ew-green);
+	padding-top: 24px;
+}
+
+.tabule-block--wide {
+	margin-top: 96px;
+}
+
+.tabule-block h2 {
+	font-size: 21px !important;
+	margin-top: 0 !important;
+	margin-bottom: 24px !important;
+}
+
+.tabule-block p {
+	line-height: 1.9;
+	margin-bottom: 28px;
+}
+
+.tabule-block p:last-child {
+	margin-bottom: 0;
+}
+
+.tabule-block strong {
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+.tabule-seasons {
+	list-style: none;
+	margin: 0 0 28px !important;
+	padding: 0;
+}
+
+.tabule-seasons li {
+	padding: 18px 0;
+	border-bottom: 1px solid rgba(1, 190, 74, 0.2);
+}
+
+.tabule-seasons li:first-child {
+	border-top: 1px solid rgba(1, 190, 74, 0.2);
+}
+
+.main-content .tabule-seasons li::before {
+	content: none;
+}
+
+.tabule-season-days {
+	display: block;
+	font-weight: 700;
+	color: var(--ew-text);
+}
+
+.tabule-season-hours {
+	display: block;
+	font-weight: 700;
+	font-size: 19px;
+	color: var(--ew-earth);
+	margin: 2px 0 4px;
+}
+
+.tabule-season-period {
+	display: block;
+	font-size: 16px;
+	color: var(--ew-text-muted);
+}
+
+.tabule-hours {
+	margin-bottom: 28px;
+}
+
+.tabule-hours td {
+	padding-top: 18px !important;
+	padding-bottom: 18px !important;
+	line-height: 1.7;
+}
+
+.tabule-hours td:first-child {
+	color: var(--ew-text);
+	font-weight: 400;
+}
+
+.tabule-block .cenik-note {
+	margin-top: 0;
+	line-height: 1.8;
+}
+
+/* Ceník */
+.cenik-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 28px;
+	margin-top: 72px;
+	font-size: 16px;
+	line-height: 1.6;
+	color: var(--ew-text-muted);
+}
+
+.cenik-meta + .cenik-warning {
+	margin-top: 24px;
+}
+
+.cenik-platnost {
+	font-weight: 700;
+	color: var(--ew-green);
+}
+
+.cenik-section {
+	margin-top: 72px;
+}
+
+@media (min-width: 992px) {
+	.cenik-section {
+		margin-top: 96px;
+	}
+}
+
+.cenik-section > p {
+	max-width: 720px;
+}
+
+.cenik-table-wrap {
+	margin-top: 32px;
+}
+
+.cenik-table {
+	width: 100%;
+	table-layout: auto;
+	border-collapse: collapse;
+}
+
+.cenik-table th {
+	text-align: left;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--ew-green);
+	padding: 0 24px 14px 0;
+	border-bottom: 2px solid var(--ew-green);
+	white-space: nowrap;
+}
+
+.cenik-table th:last-child {
+	padding-right: 0;
+	text-align: right;
+}
+
+.cenik-table td {
+	padding: 20px 24px 20px 0 !important;
+	border: 0 !important;
+	border-bottom: 1px solid rgba(1, 190, 74, 0.2) !important;
+	font-size: 16px;
+	line-height: 1.65;
+	white-space: normal;
+	width: auto;
+	vertical-align: top;
+}
+
+.cenik-table td:last-child {
+	padding-right: 0 !important;
+}
+
+.cenik-table td:first-child {
+	width: 1%;
+	white-space: nowrap;
+	font-weight: 700;
+	color: var(--ew-text-muted);
+	font-size: 16px;
+}
+
+.cenik-cena {
+	white-space: nowrap !important;
+	font-weight: 700;
+	color: var(--ew-earth);
+	text-align: right;
+}
+
+.cenik-table--sazby {
+	margin-top: 14px;
+}
+
+.cenik-table--sazby td:first-child {
+	width: auto;
+	white-space: normal;
+	font-weight: 400;
+	color: var(--ew-text);
+	font-size: 16px;
+}
+
+.cenik-note {
+	margin-top: 18px;
+	font-size: 16px;
+	line-height: 1.6;
+	color: var(--ew-text-muted);
+	max-width: 720px;
+}
+
+.cenik-warning {
+	margin-top: 72px;
+	padding: 26px 28px;
+	background: var(--ew-green-light);
+	border-left: 3px solid var(--ew-green);
+	font-size: 16px;
+	line-height: 1.7;
+}
+
+.kontakty-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 32px;
+	margin-top: 36px;
+}
+
+@media (min-width: 650px) {
+	.kontakty-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 44px;
+	}
+}
+
+.kontakt-osoba {
+	border-top: 2px solid var(--ew-green);
+	padding-top: 16px;
+}
+
+.kontakt-role {
+	display: block;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--ew-green);
+	margin-bottom: 6px;
+}
+
+.kontakt-osoba strong {
+	display: block;
+	font-size: 18px;
+	color: var(--ew-earth);
+	margin-bottom: 4px;
+}
+
+.kontakt-osoba a {
+	color: var(--ew-text);
+	font-weight: 700;
+}
+
+.kontakt-osoba a:hover {
+	color: var(--ew-green);
+}
+
+.stroje-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 56px;
+	margin-top: 44px;
+}
+
+@media (min-width: 768px) {
+	.stroje-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 80px 52px;
+	}
+}
+
+.stroj {
+	border-top: 2px solid var(--ew-green);
+	padding-top: 20px;
+}
+
+.stroj h3 {
+	font-size: 21px;
+	margin-top: 0 !important;
+	margin-bottom: 12px !important;
+	color: var(--ew-earth);
+}
+
+.stroj-params {
+	list-style: none;
+	margin: 0 !important;
+	padding: 0;
+}
+
+.stroj-params li {
+	font-size: 16px;
+	line-height: 1.55;
+	color: var(--ew-text-muted);
+	margin-bottom: 4px;
+}
+
+.main-content .stroj-params li::before {
+	content: none;
+}
+
+/* Na mobilu překlopit tabulku do řádků s popisky */
+@media (max-width: 600px) {
+	.cenik-table thead {
+		display: none;
+	}
+
+	.cenik-table,
+	.cenik-table tbody,
+	.cenik-table tr,
+	.cenik-table td {
+		display: block;
+		width: auto !important;
+	}
+
+	.cenik-table tr {
+		padding: 20px 0;
+		border-bottom: 1px solid rgba(1, 190, 74, 0.2);
+	}
+
+	.cenik-table td {
+		padding: 4px 0 !important;
+		border: 0 !important;
+		white-space: normal !important;
+	}
+
+	.cenik-table td[data-label]::before {
+		content: attr(data-label) ': ';
+		font-size: 13px;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--ew-green);
+	}
+
+	.cenik-cena {
+		text-align: left;
+		font-size: 18px;
+	}
+}
+
+.umime-items {
+	display: grid !important;
+	grid-template-columns: 1fr;
+	gap: 48px;
+	margin-top: 44px;
+}
+
+@media (min-width: 650px) {
+	.umime-items {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 72px 44px;
+	}
+}
+
+@media (min-width: 992px) {
+	.umime-items {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 96px 52px;
+		margin-top: 56px;
+	}
+}
+
+.umime-item {
+	background: transparent;
+	border-radius: 0;
+	border-top: 2px solid var(--ew-green);
+	padding: 20px 0 0 !important;
+	flex: none !important;
+}
+
+.umime-item h3 {
+	font-size: 21px;
+	margin-bottom: 12px !important;
+	color: var(--ew-earth);
+}
+
+.umime-item p {
+	line-height: 1.75;
+	color: var(--ew-text-muted);
+}
+
+/* Map & contact */
+.map {
+	background: var(--ew-bg);
+}
+
+.map-wrapper::after {
+	display: none;
+}
+
+input[type=text],
+input[type=tel],
+input[type=email],
+textarea {
+	border-color: #d0ddd4;
+	transition: border-color 0.2s;
+}
+
+input[type=text]:focus,
+input[type=tel]:focus,
+input[type=email]:focus,
+textarea:focus {
+	border-color: var(--ew-green);
+}
+
+/* Kontrolní otázka */
+.captcha {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 14px;
+	background: var(--ew-green-light);
+	border: 1px solid rgba(1, 190, 74, 0.35);
+	border-radius: 3px;
+	padding: 14px 18px;
+}
+
+.captcha-label {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0;
+	font-size: 16px;
+	color: var(--ew-text);
+	cursor: pointer;
+}
+
+.captcha-icon {
+	flex-shrink: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 2px solid var(--ew-green);
+	position: relative;
+}
+
+/* Fajfka uvnitř kolečka */
+.captcha-icon::after {
+	content: '';
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	width: 11px;
+	height: 6px;
+	border-left: 2px solid var(--ew-green);
+	border-bottom: 2px solid var(--ew-green);
+	transform: rotate(-45deg);
+}
+
+.captcha-question strong {
+	color: var(--ew-green);
+	white-space: nowrap;
+}
+
+.captcha .captcha-input {
+	width: 84px;
+	height: 42px;
+	line-height: 42px;
+	padding: 0 12px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	margin-left: auto;
+}
+
+.captcha .captcha-input.invalid {
+	border-color: var(--ew-earth);
+}
+
+.captcha .captcha-error {
+	flex-basis: 100%;
+	margin-left: 0;
+	color: var(--ew-earth);
+}
+
+/* Footer */
+.bottom-menu {
+	background: #f2f2f2;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+/* Původní CSS rozděluje šířky jen mezi tři sloupce (33 + 47 + 20 %),
+   čtvrtý se pak nevejde a řádek přetéká — nahradit mřížkou. */
+.bottom-menu .container-fluid {
+	display: grid !important;
+	grid-template-columns: 1fr;
+	gap: 32px;
+}
+
+@media (min-width: 650px) {
+	.bottom-menu .container-fluid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px 32px;
+	}
+}
+
+@media (min-width: 992px) {
+	.bottom-menu .container-fluid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.bottom-menu .container-fluid > .bottom-menu-col {
+	flex: none !important;
+	margin-top: 0 !important;
+	min-width: 0;
+}
+
+.bottom-menu h3 {
+	font-size: 22px;
+	overflow-wrap: anywhere;
+}
+
+.footer-nap {
+	font-style: normal;
+	font-size: 16px;
+	line-height: 1.7;
+	color: #5f5f5f;
+}
+
+.footer-nap strong {
+	display: block;
+	color: var(--ew-text);
+}
+
+.footer-hours {
+	font-size: 16px;
+	margin-top: 10px;
+	color: var(--ew-green);
+	font-weight: 700;
+}
+
+.bottom-menu-col > p {
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.bottom-menu-col li {
+	overflow-wrap: anywhere;
+}
+
+.footer {
+	background: var(--ew-green);
+	font-size: 17px;
+	text-align: left;
+}
+
+.bottom-menu .container-fluid a {
+	color: #5f5f5f;
+	transition: color 0.2s ease;
+}
+
+.footer a {
+	transition: opacity 0.2s ease;
+}
+
+.footer .container-fluid {
+	height: auto;
+	min-height: 84px;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.footer a:hover {
+	opacity: 0.85;
+}
+
+/* Alert */
+.alert-warning {
+	background: #d6c209;
+	color: #000;
+	border-bottom: none;
+}
+
+/* Mobile menu — bílé položky na zelené, zarovnané doleva a stejně velké
+   jako podnadpisy na webu */
+@media (max-width: 767px) {
+	.menu-open .menu {
+		background: var(--ew-green);
+		max-height: 100vh;
+		overflow-y: auto;
+		text-align: left;
+	}
+
+	.menu-open .menu ul {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.menu-open .menu li a {
+		font-size: 22px;
+		font-weight: 700;
+		color: #fff;
+		padding: 14px 0;
+	}
+
+	.menu-open .menu li a.active {
+		color: #fff;
+		opacity: 0.75;
+	}
+
+	.menu-open .menu #btn-cenik {
+		margin: 20px 15px 0;
+		font-size: 18px;
+		font-weight: 700;
+	}
+}
+
+/* Hero — tlačítka na tmavém pozadí */
+.hero .btn-secondary {
+	background: rgba(255, 255, 255, 0.15) !important;
+	color: #fff !important;
+	border: 2px solid rgba(255, 255, 255, 0.8) !important;
+	box-shadow: none !important;
+}
+
+.hero .btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.28) !important;
+	color: #fff !important;
+}
+
+.hero .btn-primary {
+	color: #fff !important;
+}
+
+.content-figure {
+	margin: 0 0 30px;
+}
+
+.content-figure img {
+	display: block;
+	width: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* CTA buttons spacing */
+.cta-band .hero-actions {
+	gap: 16px;
+	justify-content: center;
+}
+
+/* Service cards numbering accent */
+.service-block h3 {
+	color: var(--ew-earth);
+}
+
+/* FAQ */
+.faq-section {
+	padding: 50px 0;
+	background: var(--ew-white);
+}
+
+.faq-section--home {
+	background: var(--ew-bg);
+}
+
+.faq-list {
+	max-width: none;
+	margin: 24px 0 0;
+}
+
+.faq-item {
+	background: transparent;
+	border-bottom: 1px solid rgba(1, 190, 74, 0.25);
+}
+
+.faq-section h2.green,
+.faq-page h2.green {
+	color: var(--ew-green);
+}
+
+.faq-item summary {
+	padding: 16px 30px 16px 0;
+	font-size: 18px;
+	font-weight: 700;
+	cursor: pointer;
+	color: var(--ew-text);
+	list-style: none;
+	transition: color 0.2s ease;
+}
+
+.faq-item summary:hover {
+	color: var(--ew-green);
+}
+
+.faq-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq-item summary::after {
+	content: '+';
+	float: right;
+	color: var(--ew-green);
+	font-size: 22px;
+	line-height: 1;
+	transition: transform 0.25s ease;
+}
+
+.faq-item[open] summary::after {
+	content: '−';
+}
+
+.faq-answer {
+	padding: 0 30px 18px 0;
+	color: var(--ew-text-muted);
+	line-height: 1.65;
+	animation: ew-fade-in 0.25s ease;
+}
+
+@keyframes ew-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(-6px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.faq-more {
+	text-align: left;
+	margin-top: 24px;
+}
+
+.faq-more a,
+.geo-areas-more a {
+	color: var(--ew-green);
+	font-weight: 700;
+	display: inline-block;
+	transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Šipka v odkazu se při najetí posune doprava */
+.faq-more a:hover,
+.geo-areas-more a:hover {
+	color: var(--ew-earth);
+	transform: translateX(4px);
+}
+
+/* Geo areas */
+.geo-areas {
+	padding: 70px 0 80px;
+	background: var(--ew-bg);
+}
+
+@media (min-width: 992px) {
+	.geo-areas {
+		padding: 90px 0 100px;
+	}
+}
+
+.geo-areas .lead {
+	max-width: 820px;
+	margin-bottom: 24px;
+}
+
+.geo-areas > .container-fluid > p {
+	max-width: 820px;
+	margin-bottom: 24px;
+}
+
+.geo-areas-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 40px;
+	margin: 48px 0 40px;
+}
+
+@media (min-width: 650px) {
+	.geo-areas-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 44px 40px;
+	}
+}
+
+@media (min-width: 992px) {
+	.geo-areas-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 56px 48px;
+		margin: 56px 0 44px;
+	}
+}
+
+.geo-area-card {
+	border-top: 2px solid var(--ew-green);
+	padding-top: 20px;
+}
+
+.geo-area-card h3 {
+	font-size: 21px;
+	margin-bottom: 12px;
+	color: var(--ew-earth);
+}
+
+.geo-area-card p {
+	font-size: 16px;
+	line-height: 1.7;
+	color: var(--ew-text-muted);
+}
+
+.geo-areas-more {
+	margin-top: 12px;
+}
+
+
+/* Related pages */
+.related-pages {
+	padding: 50px 0;
+	background: var(--ew-white);
+}
+
+.related-pages-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+	margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+	.related-pages-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.related-page-card {
+	display: block;
+	border-top: 2px solid var(--ew-green);
+	padding-top: 20px;
+	transition: border-top-color 0.25s ease;
+}
+
+.related-page-card:hover {
+	border-top-color: var(--ew-earth);
+}
+
+.related-page-card strong {
+	display: block;
+	color: var(--ew-earth);
+	font-size: 21px;
+	margin-bottom: 10px;
+	transition: color 0.25s ease;
+}
+
+.related-page-card:hover strong {
+	color: var(--ew-green);
+}
+
+.related-page-card span {
+	color: var(--ew-text-muted);
+	font-size: 16px;
+	line-height: 1.45;
+}
+
+.page-actions {
+	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.page-actions .btn {
+	width: auto;
+	min-width: 0;
+}
+
+/* Animace vypnout, pokud si uživatel v systému přeje omezený pohyb */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Responsive — malé displeje */
+@media (max-width: 400px) {
+	.page-actions .btn,
+	.cta-band .btn {
+		flex: 1 1 100%;
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.faq-item summary {
+		padding: 15px 34px 15px 0;
+		position: relative;
+	}
+
+	.faq-item summary::after {
+		position: absolute;
+		right: 4px;
+		top: 13px;
+		float: none;
+	}
+}
+
+
+/* --------------------------------------------------------------
+   Odsazení sekcí na mobilu
+   Musí být až na konci souboru: media query nezvyšuje specificitu,
+   takže dřívější pravidlo by přepsala pozdější základní deklarace.
+   -------------------------------------------------------------- */
+@media (max-width: 767px) {
+	/* Sousední sekce sčítaly odsazení a mezera mezi nimi byla 100 px */
+	.intro-teaser {
+		padding-bottom: 25px;
+	}
+
+	.offer {
+		padding-top: 25px;
+	}
+
+	.geo-areas,
+	.faq-section,
+	.related-pages {
+		padding-top: 44px;
+		padding-bottom: 44px;
+	}
+}

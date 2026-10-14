@@ -1,0 +1,49 @@
+# Nasazení webu ecowood.cz na Zerops (PHP + Apache).
+# `setup` musí odpovídat hostname služby v Zerops (např. phpapache).
+zerops:
+  - setup: phpapache
+    build:
+      base: php@8.5
+      deployFiles: ./
+    deploy:
+      readinessCheck:
+        httpGet:
+          port: 80
+          path: /
+    run:
+      base: php-apache@8.5
+      documentRoot: .
+      ports:
+        - port: 80
+          httpSupport: true
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /
+      envVariables:
+        EW_SMTP_HOST: smtp.cloudevelops.com
+        EW_SMTP_PORT: "465"
+        EW_SMTP_SECURE: ssl
+        EW_SMTP_USER: formular@ecowood.cz
+        EW_MAIL_FROM: formular@ecowood.cz
+        EW_MAIL_TO: ecowood@ecowood.cz
+
+  - setup: ecowood
+    build:
+      base: php@8.5
+      deployFiles: ./
+    deploy:
+      readinessCheck:
+        httpGet:
+          port: 80
+          path: /
+    run:
+      base: php-apache@8.5
+      documentRoot: .
+      ports:
+        - port: 80
+          httpSupport: true
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /

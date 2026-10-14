@@ -1,0 +1,70 @@
+# Za reverzní proxy (Zerops i většina hostingů) přichází spojení do Apache
+# nešifrované. Bez tohoto řádku by Apache skládal přesměrování s http://.
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+
+RewriteEngine On
+
+# Za proxy Apache neví, že spojení je šifrované, a do přesměrování by dal
+# http://. Schéma se proto určí z hlavičky a použije se v cílových adresách.
+RewriteRule ^ - [E=EW_SCHEME:http]
+RewriteCond %{HTTPS} =on [OR]
+RewriteCond %{HTTP:X-Forwarded-Proto} =https
+RewriteRule ^ - [E=EW_SCHEME:https]
+
+# Kanonická doména: holá ecowood.cz → www.ecowood.cz.
+#
+# Podmínka schválně nekontroluje HTTPS. Za proxy Apache spojení vidí jako
+# nešifrované a %{HTTPS} se na proměnnou z SetEnvIf nespolehne, takže by
+# se pravidlo spouštělo i na adrese s www a vzniklo by nekonečné
+# přesměrování. Vynucení HTTPS řeší hosting sám na svém vstupu.
+RewriteCond %{HTTP_HOST} ^ecowood\.cz$ [NC]
+RewriteRule ^ https://www.ecowood.cz%{REQUEST_URI} [L,R=301]
+
+# Čisté adresy bez přípony: /kompost místo /kompost.php.
+#
+# Přesměrovává se jen GET, aby odeslaný formulář nepřišel o data.
+# Vzor [a-z0-9-]+ navíc nezahrnuje podtržítko, takže se mail_sender.php
+# nechytí a POST na něj projde beze změny.
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+RewriteRule ^ %{ENV:EW_SCHEME}://%{HTTP_HOST}/ [L,R=301]
+
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+([a-z0-9-]+)\.php[\s?] [NC]
+RewriteRule ^ %{ENV:EW_SCHEME}://%{HTTP_HOST}/%1 [L,R=301]
+
+# A teprve pak namapovat čistou adresu na skutečný soubor
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([a-z0-9-]+)/?$ $1.php [L]
+
+# Bezpečnostní hlavičky
+<IfModule mod_headers.c>
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+	# Web nepoužívá vlastní inline skripty; styly ano (atribut style u novinek).
+	# Písma a CSS se načítají z Typekitu, mapa odkazuje na Google.
+	Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://use.typekit.net https://p.typekit.net; font-src 'self' https://use.typekit.net data:; script-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+
+	# Statické soubory se mění zřídka, HTML musí zůstat čerstvé
+	<FilesMatch "\.(css|js|jpg|jpeg|png|gif|svg|webp|woff2?|pdf|ico)$">
+		Header set Cache-Control "public, max-age=2592000"
+	</FilesMatch>
+	<FilesMatch "\.(php|html)$">
+		Header set Cache-Control "public, max-age=0, must-revalidate"
+	</FilesMatch>
+</IfModule>
+
+# Komprese
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# Konfigurační a datové soubory nemají být dostupné z webu
+<FilesMatch "^(zerops\.yml|README\.md|build-nahled\.sh|.*\.json)$">
+	Require all denied
+</FilesMatch>

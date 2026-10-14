@@ -1,0 +1,120 @@
+{
+  "oznaceni": "Ceník 2026-5 pro maloodběratele",
+  "platnost": "1. 5. 2026",
+  "mena": "CZK",
+  "poznamka_dph": "Všechny ceny jsou uvedeny bez DPH.",
+  "poznamka_platba": "Platba na kompostárně je možná pouze v hotovosti.",
+  "poznamka_znecisteni": "V případě uložení znečištěného odpadu (příměsi kamení, papíru, plastu atd.) nezjištěného při přejímce odpadu bude provedena fotodokumentace, tento odpad bude přetříděn a dodavateli odpadu bude dodatečně účtována sazba 2 700 Kč bez DPH za tunu znečištěného odpadu.",
+  "sekce": [
+    {
+      "id": "ulozeni-bioodpadu",
+      "nazev": "Ukládka bioodpadu",
+      "popis": "Ceny za převzetí a zpracování biologicky rozložitelného odpadu přímo v kompostárně.",
+      "sloupce": ["Kód", "Název", "Katalogové číslo", "Cena bez DPH"],
+      "radky": [
+        ["UB001", "Biologicky rozložitelný odpad — listí, tráva", "20 02 01", "800 Kč / t"],
+        ["UB002", "Biologicky rozložitelný odpad — větve, dřevo nelakované a neimpregnované", "20 02 01", "1 200 Kč / t"],
+        ["UB005", "Zemina, zemina s travními drny", "20 02 02", "250 Kč / t"]
+      ]
+    },
+    {
+      "id": "produkty",
+      "nazev": "Nabídka produktů",
+      "popis": "Materiál si můžete odebrat osobně, nebo vám ho přivezeme kontejnerem.",
+      "sloupce": ["Kód", "Název", "Použití", "Cena bez DPH"],
+      "radky": [
+        ["KE024", "Kompost EW (č. registrace 3540), síto 24 mm", "přírodní hnojivo", "1 080 Kč / t"],
+        ["TD024", "Substrát pro pískování a hnojení trávníků (kompost 20 %, křemičitý písek 80 %), frakce 0–20", "regenerace trávníku", "1 150 Kč / t"],
+        ["SK024", "Substrát trávníkový EW (zemina 60 %, kompost 20 %, křemičitý písek 20 %), frakce 0–20 mm", "plošné vylepšení půdy", "1 130 Kč / t"],
+        ["ST024", "Substrát trávníkový EW (zemina 60 %, kompost 20 %, písek 20 %), frakce 0–20 mm", "plošné vylepšení půdy", "980 Kč / t"],
+        ["SZ024", "Substrát zahradnický EW (zemina 75 %, kompost 25 %), frakce 0–20 mm", "plošné vylepšení půdy", "930 Kč / t"],
+        ["KM001", "Kůra mulčovací volně ložená", "mulčování záhonů", "1 160 Kč / m³"],
+        ["RBL01", "Rašelina zahradní BigBal 2 m³", "vylepšení půdy", "4 420 Kč / ks"],
+        ["RB070", "Rašelina zahradní balená 70 l", "vylepšení půdy", "300 Kč / ks"],
+        ["PU001", "PRAuhel nedrcený, frakce 0–60 mm, 1 000 l včetně BigBagu 1 m³", "zlepšení kvality půdy", "7 700 Kč / ks"],
+        ["PU200", "PRAuhel nedrcený, frakce 0–60 mm, 200 l včetně BigBagu 0,2 m³", "zlepšení kvality půdy", "1 780 Kč / ks"],
+        ["PU050", "PRAuhel drcený, 50 l včetně obalu", "zlepšení kvality půdy", "820 Kč / ks"],
+        ["PB004", "Písek betonářský, frakce 0–4 mm, praný", "stavební práce", "610 Kč / t"],
+        ["PK004", "Písek křemičitý, frakce 0–4 mm, praný", "stavební práce", "910 Kč / t"],
+        ["BB085", "Plnění do BigBagu 1 m³ / cca 1,3 t včetně BigBagu", "rozvoz a skladování", "500 Kč / ks"]
+      ],
+      "poznamka": "Cena nevratného BigBagu je 200 Kč / ks."
+    },
+    {
+      "id": "kontejnery",
+      "nazev": "Přistavení a odvoz kontejneru včetně ukládky",
+      "popis": "Kontejner po domluvě přivezeme, odvezeme a odpad zpracujeme.",
+      "sloupce": ["Kód", "Název", "Katalogové číslo", "Cena bez DPH"],
+      "radky": [
+        ["KZ002", "Kontejner 7 m³ / max. 6 t — zemina, zemina s travními drny", "20 02 02", "1 500 Kč / kont."],
+        ["KL014", "Kontejner 14 m³ — biologicky rozložitelný odpad, listí, tráva", "20 02 01", "3 600 Kč / kont."],
+        ["KV014", "Kontejner 14 m³ — biologicky rozložitelný odpad, větve, dřevo nelakované a neimpregnované", "20 02 01", "3 600 Kč / kont."],
+        ["KP001", "Pronájem kontejneru 7 m³ nebo 14 m³", "—", "200 Kč / den"],
+        ["KP007", "Pronájem kontejneru 7 m³ nebo 14 m³", "—", "600 Kč / týden"]
+      ],
+      "poznamka": "Doprava kontejnerů se účtuje podle ujetých kilometrů, viz sekce Doprava."
+    },
+    {
+      "id": "doprava",
+      "nazev": "Doprava",
+      "sloupce": ["Kód", "Název", "Poznámka", "Cena bez DPH"],
+      "radky": [
+        ["DO006", "Nákladní automobil — kontejner, nosnost max. 6 t", "účtuje se cesta tam i zpět", "55 Kč / km"]
+      ]
+    }
+  ],
+  "stroje": {
+    "id": "pronajem-stroju",
+    "nazev": "Pronájem strojů",
+    "popis": "Ceny jsou včetně obsluhy a pohonných hmot.",
+    "polozky": [
+      {
+        "nazev": "Bubnový třídič Doppstadt SM 618 Profi",
+        "parametry": [
+          "pohon dieselagregát 55 kW, podvozek 80 km/h, celková hmotnost 14 500 kg",
+          "výkon 250–500 m³/den podle materiálu, vlhkosti a velikosti sít",
+          "výstup 2 frakce — síto oka 20 × 20 a nadsítné, dopravníkové pásy"
+        ],
+        "sazby": [
+          ["méně než 1 den (8 hod)", "4 650 Kč / mth"],
+          ["1–5 dnů", "4 300 Kč / mth"],
+          ["6–20 dnů", "4 080 Kč / mth"]
+        ],
+        "doprava": "Doprava 130 Kč/km podle ujetých kilometrů, pokud nebude dohodou mezi dodavatelem a odběratelem stanoveno jinak."
+      },
+      {
+        "nazev": "Kolový nakladač KOMATSU WA 250 PZ-6",
+        "parametry": [
+          "výkon motoru 104 kW, celková hmotnost 13 860 kg",
+          "hydraulický rychloupínák, lopata na zemní operace 2,4 m³ se zuby",
+          "lopata s přidržovačem 1,8 m³ s břitem, paletovací vidle"
+        ],
+        "sazby": [
+          ["méně než 1 den (8 hod)", "2 240 Kč / hod"],
+          ["1–5 dnů", "2 160 Kč / hod"],
+          ["6–20 dnů", "2 080 Kč / hod"]
+        ],
+        "doprava": "Doprava na podvalníku 130 Kč/km podle ujetých kilometrů, jinak podle mth, pokud nebude dohodou stanoveno jinak."
+      },
+      {
+        "nazev": "Kolový nakladač KUBOTA R082",
+        "parametry": [
+          "výkon motoru 45 kW, celková hmotnost 5 540 kg",
+          "hydraulický rychloupínák, lopata na zemní operace 0,9 m³ se zuby",
+          "paletovací vidle"
+        ],
+        "sazby": [
+          ["méně než 1 den (8 hod)", "1 450 Kč / hod"],
+          ["1–5 dnů", "1 360 Kč / hod"],
+          ["6–20 dnů", "1 280 Kč / hod"]
+        ],
+        "doprava": "Doprava 65 Kč/km podle ujetých kilometrů, pokud nebude dohodou mezi dodavatelem a odběratelem stanoveno jinak."
+      }
+    ]
+  },
+  "kontakty": [
+    ["Maloobchodní prodej", "Aleš Kohout", "602 611 593", "+420602611593"],
+    ["Velkoobchodní prodej", "Marek Chmelík", "602 525 903", "+420602525903"],
+    ["Vedení kompostárny", "Ing. Miloslav Malý", "777 737 756", "+420777737756"]
+  ]
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 114" width="115" height="114">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-1112 -1268L808 -1268L808 10194L-1112 10194Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #000000;stroke-width: 4 } 
+	</style>
+	<g id="ecowood_v1a – 1" clip-path="url(#cp1)">
+		<g id="Group 38">
+			<g id="Group 35">
+				<path id="Path 357" class="shp0" d="M101.27 79.75L34.92 13.4L31.34 16.97C25.34 22.97 33.42 29.69 38.34 37.66L48.92 54.78L41.75 61.95L52.72 72.92L59.89 65.75L77 76.32C84.97 81.24 91.69 89.32 97.69 83.32L101.27 79.75L101.27 79.75Z" />
+				<path id="Path 358" class="shp0" d="M42.54 64.65L5.98 101.21C4.67 102.52 4.67 104.67 5.98 105.98L8.68 108.68C9.99 109.99 12.14 109.99 13.45 108.68L50.01 72.13" />
+				<path id="Path 359" class="shp0" d="M110.61 70.22L108.01 76.55L101.67 79.15" />
+				<path id="Path 360" class="shp0" d="M101.15 60.76L98.55 67.09L92.21 69.69" />
+				<path id="Path 361" class="shp0" d="M91.69 51.3L89.09 57.63L82.76 60.23" />
+				<path id="Path 362" class="shp0" d="M82.23 41.84L79.63 48.17L73.3 50.77" />
+				<path id="Path 363" class="shp0" d="M72.77 32.38L70.17 38.71L63.84 41.31" />
+				<path id="Path 364" class="shp0" d="M63.31 22.92L60.71 29.25L54.38 31.85" />
+				<path id="Path 365" class="shp0" d="M53.85 13.46L51.25 19.79L44.92 22.39" />
+				<path id="Path 366" class="shp0" d="M44.39 4L41.79 10.33L35.46 12.93" />
+			</g>
+		</g>
+	</g>
+</svg>
