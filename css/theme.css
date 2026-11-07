@@ -754,7 +754,7 @@ button.btn-secondary:hover {
 }
 
 .cta-band .hero-actions {
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .cta-band .hero-actions .btn-primary {
@@ -1483,7 +1483,7 @@ html {
 /* CTA buttons spacing */
 .cta-band .hero-actions {
 	gap: 16px;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 /* Service cards numbering accent */

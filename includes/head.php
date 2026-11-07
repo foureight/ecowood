@@ -62,8 +62,8 @@
 
 	<link rel="stylesheet" href="https://use.typekit.net/mde4qbr.css">
 	<link href="css/style.min.css?v=07062020" rel="stylesheet" media="all" type="text/css">
-	<link href="css/pages.css?v=6" rel="stylesheet" media="all" type="text/css">
-	<link href="css/theme.css?v=62" rel="stylesheet" media="all" type="text/css">
+	<link href="css/pages.css?v=7" rel="stylesheet" media="all" type="text/css">
+	<link href="css/theme.css?v=63" rel="stylesheet" media="all" type="text/css">
 
 	<?php
 	$schemas = [
