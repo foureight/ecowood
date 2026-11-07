@@ -17,11 +17,11 @@ define('SEO_PHONE', '+420602525903');
 define('SEO_EMAIL', 'ecowood@ecowood.cz');
 
 /**
- * Otevírací doba kompostárny podle ceníku platného od 1. 5. 2026:
+ * Otevírací doba kompostárny:
  *
- *   Pondělí–pátek  8:00–16:00   březen–listopad
- *   Sobota         8:00–11:30   duben–červen a září–říjen
- *   Středa         8:00–16:00   prosinec–únor (zimní provoz)
+ *   Pondělí–pátek  8:00–16:00   mimo zimní provoz (březen–listopad)
+ *   Sobota         8:00–11:30   1. 4.–31. 10.; 1. 11.–31. 3. zavřeno
+ *   Středa         8:00–16:00   1. 12.–28. 2. (zimní provoz)
  *
  * Klíč je den podle date('N') (1 = pondělí), hodnota [otevřeno, zavřeno]
  * nebo null, když je zavřeno.
@@ -32,9 +32,9 @@ define('SEO_LAST_LOADING_NOTE', 'Poslední nakládka 15 minut před koncem otev�
 function seo_opening_hours_seasons()
 {
     return [
-        ['dny' => 'Pondělí–pátek', 'doba' => '8:00–16:00', 'obdobi' => 'březen–listopad'],
-        ['dny' => 'Sobota', 'doba' => '8:00–11:30', 'obdobi' => 'duben–červen a září–říjen'],
-        ['dny' => 'Středa', 'doba' => '8:00–16:00', 'obdobi' => 'prosinec–únor (zimní provoz)'],
+        ['dny' => 'Pondělí–pátek', 'doba' => '8:00–16:00', 'obdobi' => '1. 3.–30. 11.'],
+        ['dny' => 'Sobota', 'doba' => '8:00–11:30', 'obdobi' => '1. 4.–31. 10.'],
+        ['dny' => 'Středa', 'doba' => '8:00–16:00', 'obdobi' => '1. 12.–28. 2. (zimní provoz)'],
     ];
 }
 
@@ -113,17 +113,24 @@ function seo_upcoming_holiday($within_days = 7, $date = null)
 
 function seo_is_winter_season($date = null)
 {
-    $md = date('m-d', $date ?? time());
+    $ts = $date ?? time();
+    $md = date('m-d', $ts);
 
-    // Prosinec až únor — období přechází přes Nový rok
-    return $md >= '12-01' || $md <= '02-29';
+    // 1. 12. – 28. 2. (včetně celého února, tedy i 29. 2. v přestupném roce)
+    if ($md >= '12-01') {
+        return true;
+    }
+    $month = (int) date('n', $ts);
+
+    return $month === 1 || $month === 2;
 }
 
 function seo_has_saturday_season($date = null)
 {
     $md = date('m-d', $date ?? time());
 
-    return ($md >= '04-01' && $md <= '06-30') || ($md >= '09-01' && $md <= '10-31');
+    // Sobota jen 1. 4. – 31. 10.; od 1. 11. do 31. 3. zavřeno
+    return $md >= '04-01' && $md <= '10-31';
 }
 
 function seo_opening_hours($date = null)
@@ -179,14 +186,14 @@ function seo_hours_bar_schedule($timestamp = null)
 {
     $ts = $timestamp ?? time();
     if (seo_is_winter_season($ts)) {
-        return 'Kompostárna je otevřena ve středu 8:00–16:00 hod.';
+        return 'Zimní provoz 1. 12.–28. 2.: kompostárna je otevřena ve středu 8:00–16:00 hod.';
     }
     $line = 'Kompostárna je otevřena v Po–Pá 8:00–16:00 hod';
     if (seo_has_saturday_season($ts)) {
         return $line . ' a v sobotu 8:00–11:30 hod.';
     }
 
-    return $line . ' (sobota zavřeno).';
+    return $line . ' (sobota 1. 11.–31. 3. zavřeno).';
 }
 
 // 'kompost.php' → '/kompost', 'index.php' → '/'
