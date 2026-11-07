@@ -150,6 +150,45 @@ function seo_opening_hours($date = null)
     return $hours;
 }
 
+/** Čas „H:i“ na minuty od půlnoci — spolehlivější než porovnávání řetězců. */
+function seo_time_to_minutes($hhmm)
+{
+    $parts = explode(':', $hhmm, 2);
+    return ((int) ($parts[0] ?? 0)) * 60 + ((int) ($parts[1] ?? 0));
+}
+
+/** Je kompostárna právě otevřená? (Prague, dle seo_opening_hours.) */
+function seo_is_open_now($timestamp = null)
+{
+    $ts = $timestamp ?? time();
+    $hours = seo_opening_hours($ts);
+    $day = (int) date('N', $ts);
+    $range = $hours[$day] ?? null;
+    if ($range === null) {
+        return false;
+    }
+    $now = seo_time_to_minutes(date('H:i', $ts));
+    $from = seo_time_to_minutes($range[0]);
+    $to = seo_time_to_minutes($range[1]);
+
+    return $now >= $from && $now < $to;
+}
+
+/** Text rozvrhu do hnědého pruhu — odpovídá pravidlům pro dané období. */
+function seo_hours_bar_schedule($timestamp = null)
+{
+    $ts = $timestamp ?? time();
+    if (seo_is_winter_season($ts)) {
+        return 'Kompostárna je otevřena ve středu 8:00–16:00 hod.';
+    }
+    $line = 'Kompostárna je otevřena v Po–Pá 8:00–16:00 hod';
+    if (seo_has_saturday_season($ts)) {
+        return $line . ' a v sobotu 8:00–11:30 hod.';
+    }
+
+    return $line . ' (sobota zavřeno).';
+}
+
 // 'kompost.php' → '/kompost', 'index.php' → '/'
 function seo_clean_path($path)
 {

@@ -162,9 +162,18 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-/* Na počítači rozvrh a stručný stav, na mobilu jen stav i s názvem firmy */
-.hours-bar-brand {
+/* Stav: na počítači rozvrh + „Teď je kompostárna…“, na mobilu jen „Dnes otevřeno“. */
+.hours-bar-now {
+	display: inline;
+}
+
+.hours-bar-label--mobile,
+.hours-bar-status-word--mobile {
 	display: none;
+}
+
+.hours-bar-brand {
+	display: inline;
 }
 
 @media (max-width: 767px) {
@@ -172,8 +181,23 @@ h1, h2, h3, h4, h5, h6 {
 		display: none;
 	}
 
-	.hours-bar-brand {
+	.hours-bar-label--desktop,
+	.hours-bar-status-word--desktop {
+		display: none;
+	}
+
+	.hours-bar-label--mobile,
+	.hours-bar-status-word--mobile {
 		display: inline;
+	}
+
+	.hours-bar-brand {
+		display: none;
+	}
+
+	.hours-bar-now {
+		display: block;
+		margin-top: 2px;
 	}
 }
 
